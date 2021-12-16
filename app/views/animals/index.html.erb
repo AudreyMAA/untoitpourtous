@@ -22,62 +22,15 @@
 </div>
 
 <div class="container">
+  <% @animals.each do |animal| %>
   <div class="row row-cols-3">
     <div class="card" style="width: 18rem;">
       <img class="card-img-top" src="" alt="Animal Picture">
       <div class="card-body">
-        <h5 class="card-title">Dog_Name</h5>
-        <p class="card-text">Some quick example text to build on the card title
-        and make up the bulk of the card's content.</p>
-        <a href="#" class="btn btn-secondary">More</a>
+        <h5 class="card-title"><%= animal.name %></h5>
+        <p class="card-text"><%= animal.description %></p>
+        <p class="btn btn-secondary "><%= link_to 'Voir', animal_path(animal) %></p>
       </div>
     </div>
-    <div class="card" style="width: 18rem;">
-      <img class="card-img-top" src="" alt="Animal Picture">
-      <div class="card-body">
-        <h5 class="card-title">Dog_Name</h5>
-        <p class="card-text">Some quick example text to build on the card title
-        and make up the bulk of the card's content.</p>
-        <a href="#" class="btn btn-secondary">More</a>
-      </div>
-    </div>
-    <div class="card" style="width: 18rem;">
-      <img class="card-img-top" src="" alt="Animal Picture">
-      <div class="card-body">
-        <h5 class="card-title">Dog_Name</h5>
-        <p class="card-text">Some quick example text to build on the card title
-        and make up the bulk of the card's content.</p>
-        <a href="#" class="btn btn-secondary">More</a>
-      </div>
-    </div>
-  </div>
-  <div class="container">
-  <div class="row row-cols-3">
-    <div class="card" style="width: 18rem;">
-      <img class="card-img-top" src="" alt="Animal Picture">
-      <div class="card-body">
-        <h5 class="card-title">Dog_Name</h5>
-        <p class="card-text">Some quick example text to build on the card title
-        and make up the bulk of the card's content.</p>
-        <a href="#" class="btn btn-secondary">More</a>
-      </div>
-    </div>
-    <div class="card" style="width: 18rem;">
-      <img class="card-img-top" src="" alt="Animal Picture">
-      <div class="card-body">
-        <h5 class="card-title">Dog_Name</h5>
-        <p class="card-text">Some quick example text to build on the card title
-        and make up the bulk of the card's content.</p>
-        <a href="#" class="btn btn-secondary">More</a>
-      </div>
-    </div>
-    <div class="card" style="width: 18rem;">
-      <img class="card-img-top" src="" alt="Animal Picture">
-      <div class="card-body">
-        <h5 class="card-title">Dog_Name</h5>
-        <p class="card-text">Some quick example text to build on the card title
-        and make up the bulk of the card's content.</p>
-        <a href="#" class="btn btn-secondary">More</a>
-      </div>
-
+  <% end %>
 </div>
