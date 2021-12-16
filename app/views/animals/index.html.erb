@@ -22,9 +22,9 @@
 </div>
 
 <div class="container">
-  <% @animals.each do |animal| %>
   <div class="row row-cols-3">
-    <div class="card" style="width: 18rem;">
+    <% @animals.each do |animal| %>
+      <div class="card" style="width: 18rem;">
       <img class="card-img-top" src="" alt="Animal Picture">
       <div class="card-body">
         <h5 class="card-title"><%= animal.name %></h5>
@@ -33,4 +33,5 @@
       </div>
     </div>
   <% end %>
+  </div>
 </div>
