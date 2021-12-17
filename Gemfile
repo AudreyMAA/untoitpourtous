@@ -63,3 +63,9 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Install gem devise to add users table and login/log out options
 gem 'devise'
+
+# Install dotenv rails  to protect api keys
+gem 'dotenv-rails', groups: [:development, :test]
+
+# Install Cloudinary so user cand add pictures
+gem 'cloudinary', '~> 1.16.0'
