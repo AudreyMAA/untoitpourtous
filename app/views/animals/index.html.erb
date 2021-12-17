@@ -25,11 +25,12 @@
   <div class="row row-cols-3">
     <% @animals.each do |animal| %>
     <div class="card" style="width: 18rem;">
-      <img class="card-img-top" src="" alt="Animal Picture">
+      <%= cl_image_tag animal.photo.key, crop: :fill %>
       <div class="card-body">
         <h5 class="card-title"><%= animal.name %></h5>
         <p class="card-text"><%= animal.description %></p>
         <p class="btn btn-secondary "><%= link_to 'Voir', animal_path(animal) %></p>
+        <%= link_to 'X', animal_path(animal), method: :delete %>
       </div>
     </div>
     <% end %>
