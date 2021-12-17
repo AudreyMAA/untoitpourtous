@@ -1,38 +1,41 @@
-
-<div class="d-flex align-items-center">
-  <h1>Results for . . . .</h1>
-    <section class="bar">
-      <div class="container">
-        <div class="card-body p-3">
+ <div class="container">
+    <div class="d-flex align-items-center">
+      <h1>Results for . . . </h1>
+        <div class="container">
           <div class="row">
-            <div class="col-14 mb-10">
-              <div class="input-group">
-                <div class="form-outline flex-fill">
-                  <input type="search" id="form1" class="form-control form-control-lg" />
-                </div>
-                <button type="button" class="btn btn-secondary">
-                  <i class="fa fa-search"></i>
-                </button>
+              <div class="col-lg-9 card-margin">
+                  <div class="card search-form">
+                    <form id="search-form">
+                      <div class="search-bar no-gutters">
+                          <div class="col-lg-10 col-md-6 col-sm-12 p-0">
+                              <input type="text" placeholder="Search..." class="form-control" id="search" name="search">
+                          </div>
+                          <div class="col-lg-2 col-md-3 col-sm-1 p-0">
+                              <button type="submit" class="btn btn-base">
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                              </button>
+                          </div>
+                      </div>
+                    </form>
+                  </div>
               </div>
-            </div>
           </div>
-        </div>
-      </div>
-    </section>
-</div>
-
-<div class="container">
-  <div class="row row-cols-3">
-    <% @animals.each do |animal| %>
-    <div class="card" style="width: 18rem;">
-      <%= cl_image_tag animal.photo.key, crop: :fill %>
-      <div class="card-body">
-        <h5 class="card-title"><%= animal.name %></h5>
-        <p class="card-text"><%= animal.description %></p>
-        <p class="btn btn-secondary "><%= link_to 'Voir', animal_path(animal) %></p>
-        <%= link_to 'X', animal_path(animal), method: :delete %>
       </div>
     </div>
-    <% end %>
   </div>
-</div>
+
+  <div class="container">
+    <div class="row">
+      <% @animals.reverse.each do |animal| %>
+        <div class="card mx-3" style="width: 15rem;">
+          <img class="card-img-top" src="" alt="Animal Picture" style="width:100%">
+          <%= cl_image_tag animal.photos.first.key, crop: :fill %>
+          <div class="card-body">
+            <h5 class="card-title"><%= animal.name %></h5>
+            <p class="card-text"><%= animal.description %></p>
+            <p class="btn btn-secondary "><%= link_to 'Voir', animal_path(animal) %></p>
+            <%= link_to 'X', animal_path(animal), method: :delete %>
+          </div>
+        </div>
+       </div>
+     </div>
