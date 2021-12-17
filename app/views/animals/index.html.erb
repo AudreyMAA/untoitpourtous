@@ -22,8 +22,8 @@
 </div>
 
 <div class="container">
-  <% @animals.each do |animal| %>
   <div class="row row-cols-3">
+    <% @animals.each do |animal| %>
     <div class="card" style="width: 18rem;">
       <img class="card-img-top" src="" alt="Animal Picture">
       <div class="card-body">
@@ -32,5 +32,6 @@
         <p class="btn btn-secondary "><%= link_to 'Voir', animal_path(animal) %></p>
       </div>
     </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>

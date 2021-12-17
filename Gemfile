@@ -63,3 +63,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Install gem devise to add users table and login/log out options
 gem 'devise'
+
+# Insttall dotenv rails  to protect api keys
+gem 'dotenv-rails', groups: [:development, :test]
