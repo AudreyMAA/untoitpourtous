@@ -1,5 +1,4 @@
-<div class="index">
-  <div class="container">
+ <div class="container">
     <div class="d-flex align-items-center">
       <h1>Results for . . . </h1>
         <div class="container">
@@ -21,7 +20,7 @@
                   </div>
               </div>
           </div>
-        </div>
+      </div>
     </div>
   </div>
 
@@ -29,13 +28,14 @@
     <div class="row">
       <% @animals.reverse.each do |animal| %>
         <div class="card mx-3" style="width: 15rem;">
-          <img class="card-img-top" src="https://kitt.lewagon.com/placeholder/users/ssaunier" alt="Animal Picture" style="width:100%">
+          <img class="card-img-top" src="" alt="Animal Picture" style="width:100%">
+          <%= cl_image_tag animal.photos.first.key, crop: :fill %>
           <div class="card-body">
             <h5 class="card-title"><%= animal.name %></h5>
             <p class="card-text"><%= animal.description %></p>
             <p class="btn btn-secondary "><%= link_to 'Voir', animal_path(animal) %></p>
+            <%= link_to 'X', animal_path(animal), method: :delete %>
           </div>
         </div>
-    <% end %>
-  </div>
-</div>
+       </div>
+     </div>

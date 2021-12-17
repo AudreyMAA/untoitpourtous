@@ -1,23 +1,34 @@
-<h5><%= link_to 'Se connecter', new_user_session_path %></h5>
+<div class="banner" >
+  <h1><strong>Un Toit Pour Tous</strong></h1>
+  <p>Les animaux sont nés pour nous apprendre à aimer. Ensemble, offrons leurs la douceur d'un foyer !</p>
 
-<h1><strong>Un Toit Pour Tous</strong></h1>
-<p>Les animaux sont nés pour nous apprendre à aimer. Ensemble, offrons leurs la douceur d'un foyer !</p>
-
-<div class="d-flex">
-  <p class="buttons"><%= link_to 'Voir tous les animaux', animals_path%></p>
-  <p class="buttons"><%= link_to "Mettre à l'adoption",  new_animal_path %></p>
+  <div class="d-flex justify-content-around">
+    <p class="buttons btn btn-light px-5"><%= link_to 'Voir tous les animaux', animals_path%></p>
+    <p class="buttons btn btn-light px-5"><%= link_to "Mettre à l'adoption",  new_animal_path %></p>
+  </div>
 </div>
 
 <div class="d-flex ">
-  <p class="buttons btn btn-success"><%= link_to 'Chiens', root_path%></p>
-  <p class="buttons btn btn-success"><%= link_to 'Chats', root_path%></p>
-  <p class="buttons btn btn-success"><%= link_to 'Oiseaux', root_path%></p>
-  <p class="buttons btn btn-success"><%= link_to 'Rongeurs', root_path%></p>
-  <p class="buttons btn btn-success"><%= link_to 'Autres', root_path%></p>
+  <p class="buttons btn btn-light px-3"><%= link_to 'Chiens', animals_path%></p>
+  <p class="buttons btn btn-light mx-1 px-3"><%= link_to 'Chats', animals_path%></p>
+  <p class="buttons btn btn-light mx-1 px-3"><%= link_to 'Oiseaux', animals_path%></p>
+  <p class="buttons btn btn-light mx-1 px-3"><%= link_to 'Rongeurs', animals_path%></p>
+  <p class="buttons btn btn-light mx-1 px-3"><%= link_to 'Autres', animals_path%></p>
 </div>
 
 <h3>Découvrez nos derniers arrivants!</h3>
-<div class="grid">
-  <div class="card-home">
+<div class="container">
+  <div class="row row-cols-3 justify-content-around">
+    <% @animals.last(3).reverse.each do |animal| %>
+    <div class="card" style="width: 16rem;">
+       <%= cl_image_tag animal.photos.first.key, crop: :fill if animal.photos.attached? %>
+      <div class="card-body">
+        <h5 class="card-title"><%= animal.name %></h5>
+        <p class="card-text"><%= animal.description %></p>
+        <p class="btn btn-info "><%= link_to 'Voir', animal_path(animal) %></p>
+        <%= link_to 'X', animal_path(animal), method: :delete %>
+      </div>
+    </div>
+  <% end %>
   </div>
 </div>
