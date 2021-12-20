@@ -3,6 +3,8 @@ class AnimalsController < ApplicationController
   def index
     if params[:query].present?
       @animals = Animal.where("race ILIKE ?", "%#{params[:query]}%")
+    elsif params[:species]
+      @animals = Animal.where("species ILIKE ?", "%#{params[:species]}%")
     else
       @animals = Animal.all
     end

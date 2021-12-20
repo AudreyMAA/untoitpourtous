@@ -1,0 +1,7 @@
+<h1>Demandes</h1>
+
+<ol>
+<% @demands.each do |demand| %>
+  <li><strong>propriétaire : <%= demand.animal.user.email %></strong> - <strong><%= link_to demand.animal.name, animal_path(demand.animal) %></strong> | <%= demand.user.email %> : <%= demand.description %> | <strong> Statut : <em><%= demand.status %></em></strong></li>
+  <% end %>
+</ol>
