@@ -1,22 +1,29 @@
+ <div class="d-flex mt-3 justify-content-around ">
+  <p class="buttons btn btn-light px-5"><%= link_to 'Chiens', animals_path%></p>
+  <p class="buttons btn btn-light mx-1 px-5"><%= link_to 'Chats', animals_path%></p>
+  <p class="buttons btn btn-light mx-1 px-5"><%= link_to 'Oiseaux', animals_path%></p>
+  <p class="buttons btn btn-light mx-1 px-5"><%= link_to 'Rongeurs', animals_path%></p>
+  <p class="buttons btn btn-light mx-1 px-5"><%= link_to 'Autres', animals_path%></p>
+</div>
+
  <div class="container">
     <div class="d-flex align-items-center">
       <h1>Results for . . . </h1>
         <div class="container">
           <div class="row">
               <div class="col-lg-9 card-margin">
-                  <div class="card search-form">
-                    <form id="search-form">
-                      <div class="search-bar no-gutters">
-                          <div class="col-lg-10 col-md-6 col-sm-12 p-0">
-                              <input type="text" placeholder="Search..." class="form-control" id="search" name="search">
-                          </div>
-                          <div class="col-lg-2 col-md-3 col-sm-1 p-0">
-                              <button type="submit" class="btn btn-base">
-                                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-                              </button>
-                          </div>
-                      </div>
-                    </form>
+                  <div class=" search-form">
+                    <%= form_tag animals_path, method: :get do %>
+                      <%= text_field_tag :query,
+                          params[:query],
+                          class: "form-control",
+                          placeholder: "Entrer une race (pitbull, sphynx) etc..."
+                         %>
+                     <%= button_tag class: "btn btn-base" do %>
+                      <%# <%= <i class="fas fa-search"></i> %>
+                      <%= icon "fas", "search" %>
+                     <% end %>
+                    <% end %>
                   </div>
               </div>
           </div>
@@ -27,13 +34,12 @@
   <div class="container">
     <div class="row">
       <% @animals.reverse.each do |animal| %>
-        <div class="card mx-3" style="width: 15rem;">
-          <%= cl_image_tag animal.photos.first.key, crop: :fill %>
+        <div class="card mx-3" style="width: 15rem; height: 300px">
+          <%= cl_image_tag animal.photos.first.key, :class => "card-img-top", :crop => "fill" %>
           <div class="card-body">
-            <h5 class="card-title"><%= animal.name %></h5>
+            <h5 class="card-title"><strong><%= animal.name %></strong> - <%= animal.race %></h5>
             <p class="card-text"><%= animal.description %></p>
             <p class="btn btn-secondary "><%= link_to 'Voir', animal_path(animal) %></p>
-            <%= link_to 'X', animal_path(animal), method: :delete %>
           </div>
         </div>
         <% end %>

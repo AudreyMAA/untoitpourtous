@@ -1,7 +1,11 @@
 class AnimalsController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
   def index
-    @animals = Animal.all
+    if params[:query].present?
+      @animals = Animal.where("race ILIKE ?", "%#{params[:query]}%")
+    else
+      @animals = Animal.all
+    end
   end
 
   def new
