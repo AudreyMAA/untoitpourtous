@@ -28,7 +28,7 @@
     <div class="row">
       <% @animals.reverse.each do |animal| %>
         <div class="card mx-3" style="width: 15rem;">
-          <%= cl_image_tag animal.photos.first.key, crop: :fill %>
+          <%= cl_image_tag animal.photos.first.key, crop: :fill if animal.photos.attached?%>
           <div class="card-body">
             <h5 class="card-title"><%= animal.name %></h5>
             <p class="card-text"><%= animal.description %></p>
