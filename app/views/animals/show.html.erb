@@ -30,7 +30,7 @@
       <h5><%= @animal.user[:first_name] %></h5>
       <h5><%= @animal.user[:email] %></h5>
     </div>
-    <h6 class="btn btn-primary">Adopter</h6>
+    <h6><%= link_to "Adopter", new_animal_demand_path(@animal) %></h6>
   </div>
 
 </div>

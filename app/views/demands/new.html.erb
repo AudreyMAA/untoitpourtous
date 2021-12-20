@@ -1,2 +1,10 @@
 <h1>Demands#new</h1>
 <p>Find me in app/views/demands/new.html.erb</p>
+
+<h1>Formulaire de mise en adoption d'un animal</h1>
+<div class="container">
+  <%= simple_form_for [@animal, @demand ] do |f| %>
+    <%= f.input :description %>
+    <%= f.submit "Envoi de la requête", class: "btn btn-primary" %>
+<% end %>
+</div>
