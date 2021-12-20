@@ -1,6 +1,6 @@
 class DemandsController < ApplicationController
   def index
-    @demands = Demand.all
+    @demands = current_user.requests
   end
 
   def new

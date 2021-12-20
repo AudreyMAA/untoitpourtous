@@ -4,6 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :animals
+  has_many :requests, through: :animals, source: :demands
   has_many :demands
   validates :first_name, :last_name, :email, presence: true
 end
