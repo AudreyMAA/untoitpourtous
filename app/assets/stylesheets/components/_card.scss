@@ -1,0 +1,22 @@
+$orange: #FF7D00;
+$beige: #FFFBFF;
+$brown: #92817A;
+$darkbrown: #322417;
+
+.card-img-top {
+  height: 200px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.card-body{
+  background-color: $beige;
+}
+
+.card-title {
+  font-size: 24px;
+}
+
+.card-text{
+  font-size: 18px;
+}
