@@ -12,7 +12,7 @@
 <div class="container">
   <div class="row row-cols-3 justify-content-between">
     <% @animals.last(3).reverse.each do |animal| %>
-    <div class="card rounded" style="width: 16rem;">
+    <div class="card rounded" style="width: 18rem;">
        <%= cl_image_tag animal.photos.first.key, class: "card-img-top" if animal.photos.attached? %>
       <div class="card-body">
         <h5 class="card-title"><strong><%= animal.name %></strong> - <%= animal.race %></h5>
