@@ -1,37 +1,44 @@
-<div class="container d-flex my-5">
-  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-  <ol class="carousel-indicators">
-    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-  </ol>
-  <div class="carousel-inner">
-    <% @animal.photos.each_with_index do |photo, index| %>
-     <div class="carousel-item <%='active' if index == 0%>">
-     <%= cl_image_tag photo.key, height: 700, width: 500, crop: :fill %>
-     </div>
-    <% end %>
-  </div>
 
-  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
-</div>
-  <div class="container">
-    <h2><%= @animal.name %></h2>
-    <h4><%= @animal.species %> - <%= @animal.race %></h4>
-    <p><%= @animal.description %></p>
-    <div class="user">
-      <h5><%= @animal.user[:first_name] %></h5>
-      <h5><%= @animal.user[:email] %></h5>
+  <div class="container d-flex my-5">
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+      <% @animal.photos.each_with_index do |photo, index| %>
+      <div class="carousel-item <%='active' if index == 0%>">
+      <%= cl_image_tag photo.key, height: 700, width: 500, crop: :fill %>
+      </div>
+      <% end %>
     </div>
-    <h6><%= link_to "Adopter", new_animal_demand_path(@animal) %></h6>
-  </div>
 
-</div>
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+  <div class="show">
+    <div class="container">
+      <div class="animal_profile">
+        <h1>Animal Profil</h1>
+      </div>
+      <div class="container">
+        <h2><%= @animal.name %></h1>
+        <h4><%= @animal.species %> - <%= @animal.race %></h4>
+        <p><%= @animal.description %></p>
+      <div class="user">
+        <h5><%= @animal.user[:first_name] %></h5>
+        <h5><%= @animal.user[:email] %></h5>
+      </div>
+      <div class="adopter">
+        <h6><%= link_to "Adopter", new_animal_demand_path(@animal) %></h6>
+      </div>
+    </div>
+  </div>
 <p><%= link_to 'Index', animals_path %> | <%= link_to'Home Page', root_path %></p>
