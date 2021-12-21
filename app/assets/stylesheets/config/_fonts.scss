@@ -1,10 +1,35 @@
+$orange: #FF7D00;
+$beige: #FFFBFF;
+$brown: #92817A;
+$darkbrown: #322417;
 // Import Google fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito:400,700|Work+Sans:400,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Courgette&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@500;600;700&display=swap');
 
 // Define fonts for body and headers
 $body-font: "Work Sans", "Helvetica", "sans-serif";
-$headers-font: "Nunito", "Helvetica", "sans-serif";
+$headers-font: "Courgette", "Helvetica", "sans-serif";
+#site-title {
+  margin-bottom: 5px;
+  font-family: "Lobster";
+  font-size: 54px;
+  color: $orange;
+}
 
+#slogan {
+  font-size: 21px;
+  color: $beige ;
+}
+
+.slogan-highlight {
+  color: $darkbrown;
+}
+.annonce {
+  font-size: 32px;
+  color: $darkbrown;
+}
 // To use a font file (.woff) uncomment following lines
 // @font-face {
 //   font-family: "Font Name";
