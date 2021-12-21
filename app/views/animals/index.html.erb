@@ -1,9 +1,9 @@
  <div class="d-flex mt-3 justify-content-around ">
-  <p class="buttons btn btn-light px-5"><%= link_to 'Chiens', animals_path%></p>
-  <p class="buttons btn btn-light mx-1 px-5"><%= link_to 'Chats', animals_path%></p>
-  <p class="buttons btn btn-light mx-1 px-5"><%= link_to 'Oiseaux', animals_path%></p>
-  <p class="buttons btn btn-light mx-1 px-5"><%= link_to 'Rongeurs', animals_path%></p>
-  <p class="buttons btn btn-light mx-1 px-5"><%= link_to 'Autres', animals_path%></p>
+  <p class="buttons btn btn-light px-5"><%= link_to 'Chiens', animals_path(species: "chien")%></p>
+  <p class="buttons btn btn-light mx-1 px-5"><%= link_to 'Chats', animals_path(species: "chat")%></p>
+  <p class="buttons btn btn-light mx-1 px-5"><%= link_to 'Oiseaux', animals_path(species: "oiseau")%></p>
+  <p class="buttons btn btn-light mx-1 px-5"><%= link_to 'Rongeurs', animals_path(species: "rongeur")%></p>
+  <p class="buttons btn btn-light mx-1 px-5"><%= link_to 'Autres', animals_path(species: "autre")%></p>
 </div>
 
  <div class="container">
@@ -35,7 +35,7 @@
     <div class="row">
       <% @animals.reverse.each do |animal| %>
         <div class="card mx-3" style="width: 15rem; height: 300px">
-          <%= cl_image_tag animal.photos.first.key, :class => "card-img-top", :crop => "fill" %>
+          <%= cl_image_tag animal.photos.first.key, :class => "card-img-top", :crop => "fill" if animal.photos.attached? %>
           <div class="card-body">
             <h5 class="card-title"><strong><%= animal.name %></strong> - <%= animal.race %></h5>
             <p class="card-text"><%= animal.description %></p>
