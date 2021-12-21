@@ -10,3 +10,16 @@ $darkbeige: #F1DABF;
   padding: 30px;
   background-color: $darkbeige;
 }
+
+.container-show {
+  background-color: $beige;
+  border-radius: 5px;
+  h2 {
+    color: $orange;
+    font-size: 48px;
+    font-weight: bold;
+  }
+  h4 {
+    font-size: 28px;
+  }
+}
