@@ -1,5 +1,5 @@
-<h1>Formulaire de mise en adoption d'un animal</h1>
-<div class="container">
+<h1 class="mt-5 text-center"><strong>Formulaire de mise en adoption d'un animal</strong></h1>
+<div class="container container-new py-3">
   <%= simple_form_for [ @animal ] do |f| %>
   <%= f.input :name %>
   <%= f.input :species, collection: Animal::SPECIES %>
@@ -7,6 +7,6 @@
   <%= f.input :location %>
   <%= f.input :description %>
   <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-  <%= f.submit "Mettre en adoption", class: "btn btn-primary" %>
+  <%= f.submit "Mettre en adoption", class: "btn-new" %>
 <% end %>
 </div>

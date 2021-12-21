@@ -1,30 +1,30 @@
  <div class="d-flex mt-3 justify-content-around ">
-  <p class="buttons btn btn-light px-5"><%= link_to 'Chiens', animals_path(species: "chien")%></p>
-  <p class="buttons btn btn-light mx-1 px-5"><%= link_to 'Chats', animals_path(species: "chat")%></p>
-  <p class="buttons btn btn-light mx-1 px-5"><%= link_to 'Oiseaux', animals_path(species: "oiseau")%></p>
-  <p class="buttons btn btn-light mx-1 px-5"><%= link_to 'Rongeurs', animals_path(species: "rongeur")%></p>
-  <p class="buttons btn btn-light mx-1 px-5"><%= link_to 'Autres', animals_path(species: "autre")%></p>
+  <%= link_to 'Chiens', animals_path(species: "chien"), class: "btn-categories"%>
+  <%= link_to 'Chats', animals_path(species: "chat"), class: "btn-categories"%>
+  <%= link_to 'Oiseaux', animals_path(species: "oiseau"), class: "btn-categories"%>
+  <%= link_to 'Rongeurs', animals_path(species: "rongeur"), class: "btn-categories"%>
+  <%= link_to 'Autres', animals_path(species: "autre"), class: "btn-categories"%>
 </div>
 
  <div class="container">
     <div class="d-flex align-items-center">
       <h1>Results for . . . </h1>
         <div class="container">
-          <div class="row">
-              <div class="col-lg-9 card-margin">
-                  <div class=" search-form">
-                    <%= form_tag animals_path, method: :get do %>
-                      <%= text_field_tag :query,
-                          params[:query],
-                          class: "form-control",
-                          placeholder: "Entrer une race (pitbull, sphynx) etc..."
-                         %>
-                     <%= button_tag class: "btn btn-base" do %>
-                      <%# <%= <i class="fas fa-search"></i> %>
-                      <%= icon "fas", "search" %>
-                     <% end %>
-                    <% end %>
-                  </div>
+          <div class="col-lg-9 card-margin">
+              <div class=" search-form">
+                <%= form_tag animals_path, class: "d-flex justify-content-center", method: :get do %>
+                  <%= text_field_tag :query,
+                      params[:query],
+                      class: "form-control border",
+                      placeholder: "Entrer une race (pitbull, sphynx) etc..."
+                     %>
+                     <div class="search-btn border rounded">
+                      <%= button_tag class: "btn btn-base" do %>
+                       <%# <%= <i class="fas fa-search"></i> %>
+                       <%= icon "fas", "search" %>
+                      <% end %>
+                 </div>
+                <% end %>
               </div>
           </div>
       </div>
@@ -34,12 +34,12 @@
   <div class="container">
     <div class="row">
       <% @animals.reverse.each do |animal| %>
-        <div class="card mx-3" style="width: 15rem; height: 300px">
-          <%= cl_image_tag animal.photos.first.key, :class => "card-img-top", :crop => "fill" if animal.photos.attached? %>
+        <div class="card mx-3" style="width: 15rem;">
+          <%= cl_image_tag animal.photos.first.key, :class => "card-img-top" if animal.photos.attached? %>
           <div class="card-body">
             <h5 class="card-title"><strong><%= animal.name %></strong> - <%= animal.race %></h5>
-            <p class="card-text"><%= animal.description %></p>
-            <p class="btn btn-secondary "><%= link_to 'Voir', animal_path(animal) %></p>
+            <p class="card-text"><%= animal.location %></p>
+            <%= link_to 'Voir', animal_path(animal), class: "btn-card" %>
           </div>
         </div>
         <% end %>
