@@ -26,19 +26,19 @@
   <div class="show">
     <div class="container">
       <div class="animal_profile">
-        <h1>Animal Profil</h1>
+        <h1>Profil</h1>
       </div>
-      <div class="container">
+      <div class="container  container-show py-4">
         <h2><%= @animal.name %></h1>
-        <h4><%= @animal.species %> - <%= @animal.race %></h4>
+        <h4><strong><%= @animal.species %></strong> - <%= @animal.race %></h4>
         <p><%= @animal.description %></p>
-      <div class="user">
-        <h5><%= @animal.user[:first_name] %></h5>
-        <h5><%= @animal.user[:email] %></h5>
+      <div class="user container-user">
+        <h4 class="mb-3">Propriétaire:</h4>
+        <h5><strong><%= @animal.user[:first_name] %></strong> | <%= @animal.user[:email] %></h5>
       </div>
       <div class="adopter">
-        <h6><%= link_to "Adopter", new_animal_demand_path(@animal) %></h6>
+        <%= link_to "Adopter", new_animal_demand_path(@animal), class: "btn-new px-5 py-3" %>
       </div>
     </div>
   </div>
-<p><%= link_to 'Index', animals_path %> | <%= link_to'Home Page', root_path %></p>
+<p><%= link_to 'Index', animals_path, class: "btn-categories" %> | <%= link_to'Home Page', root_path, class:"btn-categories" %></p>
