@@ -38,7 +38,7 @@
           <%= cl_image_tag animal.photos.first.key, :class => "card-img-top", :crop => "fill" if animal.photos.attached? %>
           <div class="card-body">
             <h5 class="card-title"><strong><%= animal.name %></strong> - <%= animal.race %></h5>
-            <p class="card-text"><%= animal.description %></p>
+            <p class="card-text"><%= animal.location %></p>
             <p class="btn btn-secondary "><%= link_to 'Voir', animal_path(animal) %></p>
           </div>
         </div>

@@ -10,14 +10,14 @@
 
 <h3 class="mt-3">Découvrez nos derniers arrivants!</h3>
 <div class="container">
-  <div class="row row-cols-3 justify-content-around">
+  <div class="row row-cols-3 justify-content-between">
     <% @animals.last(3).reverse.each do |animal| %>
     <div class="card" style="width: 16rem;">
        <%= cl_image_tag animal.photos.first.key, crop: :fill if animal.photos.attached? %>
       <div class="card-body">
-        <h5 class="card-title"><%= animal.name %></h5>
-        <p class="card-text"><%= animal.description %></p>
-        <p class="btn btn-info text-center"><%= link_to 'Voir', animal_path(animal) %></p>
+        <h5 class="card-title"><strong><%= animal.name %></strong> - <%= animal.race %></h5>
+        <p class="card-text"><%= animal.location%></p>
+        <p class="btn text-white"><%= link_to 'Voir', animal_path(animal) %></p>
       </div>
     </div>
   <% end %>

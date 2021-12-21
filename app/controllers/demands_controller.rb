@@ -18,7 +18,7 @@ class DemandsController < ApplicationController
 
     if @demand.save
       redirect_to animal_path(@animal)
-      flash[:notice] = "Votre demande a été prise  en compte"
+      flash[:notice] = "Votre demande a bien étéprise  en compte"
     else
       render :new
     end
